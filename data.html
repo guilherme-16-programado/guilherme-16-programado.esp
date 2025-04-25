@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="data.css">
+    <title>Entrega Da Aliança</title>
+    <!-- Carrossel -->
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick.min.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.5.8/slick-theme.min.css'>
+</head>
+<body>
+    <header>
+        <div class="logo">Minha Garotinha</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="nav-bar">
+          <ul>
+              <li>
+                  <a href="index.html">Inicio</a>
+              </li>
+              <li>
+                  <a href="galeria.html">Galeria</a>
+              </li>
+              <li>
+                  <a href="data.html" class="active">Entrega Da Aliança</a>
+              </li>
+              <li>
+                  <a href="juntos.html">Meses Juntos</a>
+              </li>
+          </ul>
+      </div>
+    </header>
+
+    <main>
+        <h1>18/01/2025</h1>
+        
+        <div class="content-box">
+            <p>Esta é a data especial em que entreguei a aliança para a pessoa mais importante da minha vida.</p>
+            
+            <h2>Tempo desde 18/01/2025:</h2>
+            <div id="cronometro-data">0 meses, 0 dias, 0 horas, 0 minutos, 0 segundos</div>
+        </div>
+
+        <!-- Galeria de Fotos -->
+        <div class="gallery-section">
+            <h2>Nossas Fotos</h2>
+            <div class="carousel">
+                <div><img src="minha garotinha/buqueealiança.jpg" alt="Foto 1"></div>
+                <div><img src="minha garotinha/buquesti.jpg" alt="Foto 2"></div>
+                <!-- Adicione mais imagens conforme necessário -->
+            </div>
+        </div>
+
+        <!-- Galeria de Vídeos -->
+        <div class="gallery-section">
+            <h2>Nossos Vídeos</h2>
+            <div class="video-gallery">
+                <div class="video-item">
+                    <div class="video-thumbnail" onclick="playVideo(this, 'minha garotinha/video1.mp4')">
+                      <div class="video-thumbnail" onclick="playVideo(this, '')">
+                        <img src="minha garotinha/capa1.jpg" alt="Thumbnail 1">
+                        <div class="play-button">▶</div>
+                    </div>
+                    
+                </div>
+                
+                <div class="video-item">
+                    <div class="video-thumbnail" onclick="playVideo(this, 'minha garotinha/video2.mp4')">
+                        <img src="minha garotinha/capa2.jpg" alt="Thumbnail 2">
+                        <div class="play-button">▶</div>
+                    </div>
+                </div>
+                <!-- Adicione mais vídeos conforme necessário -->
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para zoom de foto -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="zoomedImg" src="" alt="">
+        </div>
+    </div>
+
+    <!-- Modal para vídeo -->
+    <div id="videoModal" class="modal">
+        <span class="close" onclick="closeVideo()">&times;</span>
+        <div class="modal-content">
+            <video id="videoPlayer" controls>
+                Seu navegador não suporta vídeos HTML5.
+            </video>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
+    <script>
+        // Menu mobile
+        hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function() {
+            navBar = document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        };
+
+        // Cronômetro
+        const dataEspecial = new Date("2025-01-18T00:00:00");
+
+        function calcularTempoDecorrido() {
+            const agora = new Date();
+            const tempoDecorrido = agora - dataEspecial;
+
+            const segundos = Math.floor((tempoDecorrido / 1000) % 60);
+            const minutos = Math.floor((tempoDecorrido / (1000 * 60)) % 60);
+            const horas = Math.floor((tempoDecorrido / (1000 * 60 * 60)) % 24);
+            const diasTotais = Math.floor(tempoDecorrido / (1000 * 60 * 60 * 24));
+            const meses = Math.floor(diasTotais / 30);
+            const dias = diasTotais % 30;
+
+            return { meses, dias, horas, minutos, segundos };
+        }
+
+        function atualizarCronometro() {
+            const { meses, dias, horas, minutos, segundos } = calcularTempoDecorrido();
+            document.getElementById("cronometro-data").innerText = 
+                `${meses} meses, ${dias} dias, ${horas} horas, ${minutos} minutos, ${segundos} segundos`;
+        }
+
+        setInterval(atualizarCronometro, 1000);
+        atualizarCronometro();
+
+        // Galeria Carrossel
+        $(document).ready(function(){
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true,
+                autoplay: true,
+                autoplaySpeed: 2000
+            });
+        });
+
+        // Modal para zoom de foto
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("zoomedImg");
+        const closeBtn = document.querySelector(".close");
+        
+        document.querySelectorAll('.carousel img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            });
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+        
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+
+        // Funções para o player de vídeo
+        function playVideo(element, videoSrc) {
+            const videoModal = document.getElementById("videoModal");
+            const videoPlayer = document.getElementById("videoPlayer");
+            
+            videoPlayer.src = videoSrc;
+            videoModal.style.display = "flex";
+            videoPlayer.play();
+        }
+
+        function closeVideo() {
+            const videoModal = document.getElementById("videoModal");
+            const videoPlayer = document.getElementById("videoPlayer");
+            
+            videoPlayer.pause();
+            videoPlayer.currentTime = 0;
+            videoModal.style.display = "none";
+        }
+
+        // Fechar modal de vídeo ao clicar fora
+        document.getElementById("videoModal").addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeVideo();
+            }
+        });
+    </script>
+</body>
+</html>

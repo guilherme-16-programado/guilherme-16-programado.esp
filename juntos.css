@@ -1,0 +1,229 @@
+body {
+    font-family: "Arial", sans-serif;
+    text-align: center;
+    background-image: url(img/WhatsApp\ Image\ 2024-12-11\ at\ 15.09.23.jpeg);
+    background-color: black;
+    background-size: cover;
+    background-position: center;
+    color: white;
+    position: relative;
+  }
+  
+  #ge {
+    color: rgb(218, 28, 28);
+    position: relative;
+    z-index: 1;
+    padding: 20px;
+  }
+  h1 {
+    color: rgb(218, 28, 28);
+    position: relative;
+    z-index: 1;
+  }
+  
+  h2 {
+    position: relative;
+    z-index: 1;
+  }
+  
+  p {
+    font-size: 1.2em;
+    margin: 20px auto;
+    padding: 0 15px;
+    line-height: 1.5;
+    position: relative;
+    z-index: 1;
+  }
+  
+  #image-container {
+    position: relative;
+    width: 300px;
+    height: 530px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 0px;
+    margin-top: 100px;
+  }
+  
+  img {
+    width: auto;
+    height: 530px;
+    border-radius: 40px;
+    transition: opacity 0.5s ease;
+  }
+  
+  .hidden {
+    opacity: 0;
+  }
+  
+  #cronometro {
+    font-size: 1.5em;
+    margin: 10px;
+    border-radius: 10px;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+  }
+  
+  #garotinha {
+    font-size: 1.8em;
+  }
+  
+  * {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: Arial, sans-serif;
+    box-sizing: border-box;
+  }
+  
+  header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    background-color: rgba(0, 0, 0, 0.7);
+  }
+  .logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .nav-bar {
+    display: flex;
+  }
+  
+  .nav-bar ul {
+    display: flex;
+  }
+  
+  .nav-bar ul li a {
+    display: block;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.3s;
+    margin: 0 5px;
+  }
+  
+  .nav-bar ul li a:hover {
+    color: black;
+    background-color: #ffffff;
+  }
+  
+  .nav-bar ul li a.active {
+    color: black;
+    background-color: #ffffff;
+  }
+  
+  @media only screen and (max-width: 900px) {
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+    .hamburger .line {
+      width: 30px;
+      height: 3px;
+      background: #ffffff;
+      margin: 6px 0;
+    }
+    .nav-bar {
+      height: 0;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      background: black;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+    .nav-bar.active {
+      height: auto;
+    }
+    .nav-bar ul {
+      display: block;
+      width: fit-content;
+      margin: 0 auto;
+      text-align: center;
+      transition: 0.5s;
+      opacity: 0;
+    }
+    .nav-bar.active ul {
+      opacity: 1;
+    }
+    .nav-bar ul li a {
+      margin-bottom: 12px;
+    }
+  }
+  
+  .nav-bar ul li a:hover {
+    color: black;
+    background-color: #ffffff;
+  }
+  
+  .nav-bar ul li a.active {
+    color: black;
+    background-color: #ffffff;
+  }
+  @media only screen and (max-width: 1320px) {
+    header {
+      padding: 0 50px;
+    }
+  }
+  @media only screen and (max-width: 1100px) {
+    header {
+      padding: 0 50px;
+    }
+  }
+  @media only screen and (max-width: 900px) {
+    .hamburger {
+      display: block;
+      cursor: pointer;
+    }
+    .hamburger .line {
+      width: 30px;
+      height: 3px;
+      background: #ffffff;
+      margin: 6px 0;
+    }
+    .nav-bar {
+      height: 0;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      background: black;
+      transition: 0.5s;
+      overflow: hidden;
+    }
+    .nav-bar.active {
+      height: 450px;
+    }
+    .nav-bar ul {
+      display: block;
+      width: fit-content;
+      margin: 80px auto 0 auto;
+      text-align: center;
+      transition: 0.5s;
+      opacity: 0;
+    }
+    .nav-bar.active ul {
+      opacity: 1;
+    }
+    .nav-bar ul li a {
+      margin-bottom: 12px;
+    }
+  }
+  

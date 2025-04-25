@@ -1,0 +1,400 @@
+body {
+  min-height: 100vh;
+  font-family: "Arial", sans-serif;
+  background-image: url(img/WhatsApp\ Image\ 2024-12-11\ at\ 15.09.23.jpeg);
+  background-size: cover;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.logo {
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.nav-bar {
+  display: flex;
+}
+
+.nav-bar ul {
+  display: flex;
+}
+
+.nav-bar ul li a {
+  display: block;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 25px;
+  border-radius: 50px;
+  transition: 0.3s;
+  margin: 0 5px;
+}
+
+.nav-bar ul li a:hover {
+  color: black;
+  background-color: #ffffff;
+}
+
+.nav-bar ul li a.active {
+  color: black;
+  background-color: #ffffff;
+}
+
+@media only screen and (max-width: 900px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .hamburger .line {
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    margin: 6px 0;
+  }
+  .nav-bar {
+    height: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background: black;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+  .nav-bar.active {
+    height: auto;
+  }
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+  }
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+  }
+}
+
+.nav-bar ul li a:hover {
+  color: black;
+  background-color: #ffffff;
+}
+
+.nav-bar ul li a.active {
+  color: black;
+  background-color: #ffffff;
+}
+@media only screen and (max-width: 1320px) {
+  header {
+    padding: 0 50px;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  header {
+    padding: 0 50px;
+  }
+}
+@media only screen and (max-width: 900px) {
+  .hamburger {
+    display: block;
+    cursor: pointer;
+  }
+  .hamburger .line {
+    width: 30px;
+    height: 3px;
+    background: #ffffff;
+    margin: 6px 0;
+  }
+  .nav-bar {
+    height: 0;
+    position: absolute;
+    top: 80px;
+    left: 0;
+    right: 0;
+    width: 100vw;
+    background: black;
+    transition: 0.5s;
+    overflow: hidden;
+  }
+  .nav-bar.active {
+    height: 450px;
+  }
+  .nav-bar ul {
+    display: block;
+    width: fit-content;
+    margin: 80px auto 0 auto;
+    text-align: center;
+    transition: 0.5s;
+    opacity: 0;
+  }
+  .nav-bar.active ul {
+    opacity: 1;
+  }
+  .nav-bar ul li a {
+    margin-bottom: 12px;
+  }
+}
+
+
+main {
+  margin-top: 100px;
+  padding: 20px;
+  text-align: center;
+  flex: 1;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #ff6b6b;
+  margin-bottom: 30px;
+}
+
+.content-box {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 15px;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.content-box p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  margin-bottom: 30px;
+  
+}
+
+#cronometro-data {
+  font-size: 1.5em;
+  color: #ffffff;
+  margin-top: 20px;
+  padding: 10px;
+  background-color: rgba(255, 107, 107, 0.2);
+  border-radius: 10px;
+}
+
+/* Estilos da Galeria de Fotos */
+.gallery-section {
+  margin-top: 50px;
+  padding: 20px;
+  text-align: center;
+}
+
+.gallery-section h2 {
+  color: #ff6b6b;
+  margin-bottom: 20px;
+}
+
+.carousel {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.carousel div {
+  padding: 10px;
+}
+
+.carousel img {
+  width: 100%;
+  max-height: 500px;
+  object-fit: contain;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+
+.carousel img:hover {
+  transform: scale(1.02);
+}
+
+/* Estilos para a galeria de vídeos */
+.video-gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+  max-width: 1000px;
+  margin: 0 auto;
+  
+}
+
+.video-item {
+  width: 300px;
+  cursor: pointer;
+  transition: transform 0.3s;
+  
+}
+
+.video-item:hover {
+  transform: scale(1.03);
+}
+
+.video-thumbnail {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  opacity: 0.8;
+  transition: all 0.3s;
+}
+
+.video-thumbnail:hover .play-button {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-item p {
+  margin-top: 10px;
+  text-align: center;
+  color: white;
+}
+
+/* Estilos dos modais */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.modal-content img {
+  width: 100%;
+  height: auto;
+  max-height: 80vh;
+  object-fit: contain;
+}
+
+#videoPlayer {
+  width: 100%;
+  max-height: 80vh;
+  outline: none;
+}
+
+.close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Slick Carousel adjustments */
+.slick-prev:before, .slick-next:before {
+  color: #ff6b6b !important;
+  font-size: 30px !important;
+}
+
+.slick-dots li button:before {
+  color: white !important;
+  font-size: 12px !important;
+}
+
+/* Menu mobile */
+@media (max-width: 900px) {
+  .hamburger {
+      display: block;
+      cursor: pointer;
+  }
+  .hamburger .line {
+      width: 30px;
+      height: 3px;
+      background: #ffffff;
+      margin: 6px 0;
+  }
+  .nav-bar {
+      height: 0;
+      position: absolute;
+      top: 80px;
+      left: 0;
+      right: 0;
+      width: 100vw;
+      background: black;
+      transition: 0.5s;
+      overflow: hidden;
+  }
+  .nav-bar.active {
+      height: 450px;
+  }
+  .nav-bar ul {
+      display: block;
+      width: fit-content;
+      margin: 80px auto 0 auto;
+      text-align: center;
+      transition: 0.5s;
+      opacity: 0;
+  }
+  .nav-bar.active ul {
+      opacity: 1;
+  }
+  .nav-bar ul li a {
+      margin-bottom: 12px;
+  }
+  
+  .video-item {
+      width: 100%;
+      max-width: 300px;
+  }
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galeria Automática</title>
+    <link rel="stylesheet" href="galeria.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Minha Garotinha</div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+
+        <div class="nav-bar">
+            <ul>
+                <li><a href="index.html" class="active">Inicio</a></li>
+                <li><a href="galeria.html">Galeria</a></li>
+                <li><a href="data.html">Entrega Da Aliança</a></li>
+                <li><a href="juntos.html">Meses Juntos</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="gallery-container" id="gallery"></div>
+
+    <!-- Modal para zoom -->
+    <div id="myModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img id="zoomedImg" src="" alt="">
+        </div>
+    </div>
+
+    <script>
+        // Menu mobile
+        hamburger = document.querySelector(".hamburger");
+        hamburger.onclick = function() {
+            navBar = document.querySelector(".nav-bar");
+            navBar.classList.toggle("active");
+        };
+
+        // Galeria automática
+        const gallery = document.getElementById('gallery');
+        const imageFolder = 'minha garotinha/'; // Pasta onde estão as imagens
+        
+        // Lista de imagens (substitua pelos nomes reais dos seus arquivos)
+        const imageList = [
+            'beijo.jpg',
+            'brayan.jpg',
+            'homenaranha.jpg',
+            'nosbeijinhos.jpg',
+            'abraçados.jpg',
+            'cabeçao.jpg'
+            
+        ];
+
+        // Criar a galeria
+        imageList.forEach(image => {
+            const imgDiv = document.createElement('div');
+            imgDiv.className = 'gallery-item';
+            
+            const img = document.createElement('img');
+            img.src = imageFolder + image;
+            img.alt = image;
+            
+            imgDiv.appendChild(img);
+            gallery.appendChild(imgDiv);
+        });
+
+        // Modal de zoom
+        const modal = document.getElementById("myModal");
+        const modalImg = document.getElementById("zoomedImg");
+        const closeBtn = document.querySelector(".close");
+        
+        document.querySelectorAll('.gallery-item img').forEach(img => {
+            img.addEventListener('click', function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+            });
+        });
+        
+        closeBtn.addEventListener('click', function() {
+            modal.style.display = "none";
+        });
+        
+        modal.addEventListener('click', function(e) {
+            if (e.target === modal) {
+                modal.style.display = "none";
+            }
+        });
+    </script>
+</body>
+</html>
